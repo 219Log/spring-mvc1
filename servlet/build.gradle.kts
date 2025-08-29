@@ -26,12 +26,18 @@ repositories {
 }
 
 dependencies {
+	// JSP 추가 시작
+	implementation("org.apache.tomcat.embed:tomcat-embed-jasper")
+	implementation("javax.servlet:jstl:1.2")
+	// JSP 추가 끝
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+
 }
 
 tasks.withType<Test> {
