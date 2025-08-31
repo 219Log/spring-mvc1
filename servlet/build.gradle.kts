@@ -28,16 +28,19 @@ repositories {
 dependencies {
 	// JSP 추가 시작
 	implementation("org.apache.tomcat.embed:tomcat-embed-jasper")
-	implementation("javax.servlet:jstl:1.2")
+	// implementation("javax.servlet:jstl:1.2") // <-- 이 줄은 삭제하거나 주석 처리
+
+	// Jakarta EE 9+ 호환 JSTL 라이브러리로 변경
+	implementation("jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0")
+	implementation("org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1")
 	// JSP 추가 끝
+
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-
 }
 
 tasks.withType<Test> {
